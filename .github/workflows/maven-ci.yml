@@ -48,11 +48,11 @@ jobs:
     - name: 🔨 Build project
       run: mvn clean install -DskipITs
 
-    - name: 🧪 Run Tests (with MySQL)
+    - name: 🧪 Run Tests (with GitHub Secrets)
       env:
-        DB_URL: jdbc:mysql://localhost:3306/rassa
-        DB_USER: root
-        DB_PASS: root
+        DB_URL: ${{ secrets.DB_URL }}
+        DB_USER: ${{ secrets.DB_USER }}
+        DB_PASS: ${{ secrets.DB_PASS }}
       run: mvn test
 
     - name: 📦 Package the application
@@ -63,4 +63,3 @@ jobs:
       with:
         name: flight-ticketing-system-jar
         path: target/flight-ticketing-system-*.jar
-
