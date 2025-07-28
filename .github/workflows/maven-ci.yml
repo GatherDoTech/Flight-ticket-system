@@ -56,7 +56,7 @@ jobs:
       run: mvn test
 
     - name: 📦 Package the application
-      run: mvn spring-boot:repackage
+      run: mvn package
 
     - name: 📁 Upload Spring Boot JAR
       uses: actions/upload-artifact@v4
